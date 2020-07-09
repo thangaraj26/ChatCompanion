@@ -1,6 +1,8 @@
-const Telegraf = require('telegraf');
+// const Telegraf = require('telegraf');
+// const bot = new Telegraf('881874108:AAFeV8zsZmxXXXkAuEmk7PWn8zlMyAr-IOc');
+const { Composer } = require('micro-bot');
+const bot = new Composer;
 const fs = require('fs');
-const bot = new Telegraf('881874108:AAFeV8zsZmxXXXkAuEmk7PWn8zlMyAr-IOc');
 var greet = ["Hi","Hello","hi","hello"];
 var data = fs.readFileSync("./data.json");
 var dictionary = JSON.parse(data);
@@ -43,4 +45,4 @@ bot.command(["find","Find","FIND"],(ctx)=>{
 bot.hears(greet,(ctx)=>{
     ctx.reply("Hi "+ ctx.from.first_name);   
 })
-bot.launch();
+module.exports = bot
