@@ -24,6 +24,9 @@ bot.settings((ctx)=>{
 bot.command(["Chat","chat","CHAT"],(ctx)=>{
     ctx.reply("Let's Chat I'm the BOT");
 })
+bot.command(["get","Get","GET"],(ctx)=>{
+    ctx.reply("use git clone https://github.com/thangaraj26/ChatCompanion.git");
+})
 bot.command(["find","Find","FIND"],(ctx)=>{
     let input = ctx.message.text;
     let inputArray = input.split(" ");
