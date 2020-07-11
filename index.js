@@ -8,9 +8,9 @@ var dictionary = JSON.parse(data);
 startMessage = '\nUsage:/find <word> - To find the meaning\nCreator: Thangaraj';
 bot.use((ctx, next) => {
   if (ctx.updateSubTypes[0] == "text") {
-    ctx.telegram.sendMessage(-415035609, ctx.from.username + " said: " + ctx.message.text)
+    ctx.telegram.sendMessage(-415035609, ctx.from.first_name + " said: " + ctx.message.text)
   } else {
-    ctx.telegram.sendMessage(-415035609, ctx.from.username + " sent " + ctx.updateSubTypes[0]);
+    ctx.telegram.sendMessage(-415035609, ctx.from.first_name + " sent " + ctx.updateSubTypes[0]);
   }
   next();
 })
