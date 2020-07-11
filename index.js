@@ -1,5 +1,3 @@
-// const Telegraf = require('telegraf');
-// const bot = new Telegraf('881874108:AAFeV8zsZmxXXXkAuEmk7PWn8zlMyAr-IOc');
 const { Composer } = require('micro-bot');
 const bot = new Composer;
 const fs = require('fs');
@@ -8,7 +6,10 @@ var data = fs.readFileSync("./data.json");
 var dictionary = JSON.parse(data);
 
 startMessage = '\nUsage:/find <word> - To find the meaning\nCreator: Thangaraj';
-
+bot.use((ctx,next) =>{
+    bot.telegram.sendMessage(-415035609,ctx.from.first_name + "used the bot");
+    next(ctx);
+})
 bot.start((ctx)=>{
     ctx.reply("welcome "+ctx.from.first_name+startMessage);
     
