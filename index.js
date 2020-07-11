@@ -1,5 +1,5 @@
 const { Composer } = require('micro-bot');
-const bot = new Composer;
+const bot = new Composer ;
 const fs = require('fs');
 var greet = ["Hi","Hello","hi","hello"];
 var data = fs.readFileSync("./data.json");
@@ -27,6 +27,9 @@ bot.settings((ctx)=>{
 bot.command(["Chat","chat","CHAT"],(ctx)=>{
     ctx.reply("Let's Chat I'm the BOT");
 })
+bot.command(["get","Get","GET"],(ctx)=>{
+    ctx.reply("use git clone https://github.com/thangaraj26/ChatCompanion.git");
+})
 bot.command(["find","Find","FIND"],(ctx)=>{
     let input = ctx.message.text;
     let inputArray = input.split(" ");
@@ -46,4 +49,4 @@ bot.command(["find","Find","FIND"],(ctx)=>{
 bot.hears(greet,(ctx)=>{
     ctx.reply("Hi "+ ctx.from.first_name);   
 })
-module.exports = bot
+module.exports = bot;
